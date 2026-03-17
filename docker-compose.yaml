@@ -10,9 +10,13 @@ services:
       - ./data/letsencrypt:/etc/letsencrypt
   frontend:
     build: ./frontend
+    environment:
+      - API_URL=http://api.meicm.pt
   api:
     build: ./api
     depends_on:
       - cache-db
+    environment:
+      - REDIS_URL=redis://cache-db:6379
   cache-db:
     image: redis

@@ -11,7 +11,7 @@
     <p>Message from Backend: <span id="data">Waiting...</span></p>
 
     <script>
-        fetch('http://api.meicm.pt/data')
+        fetch('__API_URL__/data')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('status').innerText = "Connected via Edge Router!";
