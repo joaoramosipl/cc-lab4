@@ -8,3 +8,11 @@ services:
     volumes:
       - ./data/npm:/data
       - ./data/letsencrypt:/etc/letsencrypt
+  frontend:
+    build: ./frontend
+  api:
+    build: ./api
+    depends_on:
+      - cache-db
+  cache-db:
+    image: redis
